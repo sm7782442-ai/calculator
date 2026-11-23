@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator - MALIK SHAH MUHAMMAD</title>
+</head>
+<body style="background:#f0f2f5;display:flex;justify-content:center;align-items:center;min-height:100vh;margin:0;font-family:Arial">
+  <div id="calc_box" tabindex="0" style="width:330px;background:#fff;padding:18px;border-radius:18px;box-shadow:0 8px 25px rgba(0,0,0,0.15);border:1px solid #ddd;outline:none">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+      <b style="color:#1a73e8;font-size:13px">MALIK SHAH MUHAMMAD</b>
+      <button onclick="tH()" style="background:#f1f3f4;border:none;padding:5px 9px;border-radius:8px;font-size:12px;cursor:pointer;font-weight:bold">🕒 History</button>
+    </div>
+    <div id="hb" style="display:none;background:#f8f9fa;border:1px solid #ddd;border-radius:8px;padding:8px;margin-bottom:10px;max-height:90px;overflow-y:auto;font-size:12px">
+      <div style="display:flex;justify-content:space-between"><b>History</b><span onclick="cH()" style="color:red;cursor:pointer">Clear</span></div>
+      <div id="hl">Khali hai</div>
+    </div>
+    <div style="background:#f8f9fa;border-radius:10px;padding:10px;margin-bottom:10px;border:1px solid #ddd">
+      <div id="ss" style="height:16px;font-size:12px;color:#666;text-align:right"></div>
+      <input id="ms" style="width:100%;border:none;background:transparent;font-size:24px;font-weight:bold;text-align:right;outline:none" placeholder="0">
+    </div>
+    <div id="sb" style="display:none;background:#f8f9fa;padding:7px;border-radius:8px;border:1px solid #ddd;margin-bottom:8px">
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:4px">
+        <button onclick="aV('Math.sin(')">sin</button><button onclick="aV('Math.cos(')">cos</button><button onclick="aV('Math.tan(')">tan</button><button onclick="aV('Math.log10(')">log</button><button onclick="aV('Math.sqrt(')">√</button>
+        <button onclick="aV('**2')">x²</button><button onclick="aV('**')">xʸ</button><button onclick="aV('Math.PI')">π</button><button onclick="aV('Math.E')">e</button><button onclick="aV('/100')">%</button>
+        <button onclick="aV('(')">(</button><button onclick="aV(')')">)</button><button onclick="fC()">n!</button><button onclick="aV('000')">000</button><button onclick="uA()">Ans</button>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px">
+      <button onclick="cA()" style="padding:12px;border:none;border-radius:8px;background:#fce8e6;color:#d93025;font-weight:bold;cursor:pointer">AC</button>
+      <button onclick="dO()" style="padding:12px;border:none;border-radius:8px;background:#e8eaed;font-weight:bold;cursor:pointer">⌫</button>
+      <button onclick="tS()" style="padding:12px;border:none;border-radius:8px;background:#e8f0fe;color:#1a73e8;font-weight:bold;cursor:pointer">ƒx</button>
+      <button onclick="aV('/')" style="padding:12px;border:none;border-radius:8px;background:#e8eaed;color:#1a73e8;font-weight:bold;cursor:pointer">÷</button>
+      <button onclick="aV('7')" style="padding:12px;border:1px solid #eee;border-radius:8px;background:#f8f9fa;font-weight:bold;cursor:pointer">7</button>
+      <button onclick="aV('8')" style="padding:12px;border:1px solid #eee;border-radius:8px;background:#f8f9fa;font-weight:bold;cursor:pointer">8</button>
+      <button onclick="aV('9')" style="padding:12px;border:1px solid #eee;border-radius:8px;background:#f8f9fa;font-weight:bold;cursor:pointer">9</button>
+      <button onclick="aV('*')" style="padding:12px;border:none;border-radius:8px;background:#e8eaed;color:#1a73e8;font-weight:bold;cursor:pointer">×</button>
+      <button onclick="aV('4')" style="padding:12px;border:1px solid #eee;border-radius:8px;background:#f8f9fa;font-weight:bold;cursor:pointer">4</button>
+      <button onclick="aV('5')" style="padding:12px;border:1px solid #eee;border-radius:8px;background:#f8f9fa;font-weight:bold;cursor:pointer">5</button>
+      <button onclick="aV('6')" style="padding:12px;border:1px solid #eee;border-radius:8px;background:#f8f9fa;font-weight:bold;cursor:pointer">6</button>
+      <button onclick="aV('-')" style="padding:12px;border:none;border-radius:8px;background:#e8eaed;color:#1a73e8;font-weight:bold;cursor:pointer">−</button>
+      <button onclick="aV('1')" style="padding:12px;border:1px solid #eee;border-radius:8px;background:#f8f9fa;font-weight:bold;cursor:pointer">1</button>
+      <button onclick="aV('2')" style="padding:12px;border:1px solid #eee;border-radius:8px;background:#f8f9fa;font-weight:bold;cursor:pointer">2</button>
+      <button onclick="aV('3')" style="padding:12px;border:1px solid #eee;border-radius:8px;background:#f8f9fa;font-weight:bold;cursor:pointer">3</button>
+      <button onclick="aV('+')" style="padding:12px;border:none;border-radius:8px;background:#e8eaed;color:#1a73e8;font-weight:bold;cursor:pointer">+</button>
+      <button onclick="aV('0')" style="padding:12px;border:1px solid #eee;border-radius:8px;background:#f8f9fa;font-weight:bold;cursor:pointer">0</button>
+      <button onclick="aV('.')" style="padding:12px;border:1px solid #eee;border-radius:8px;background:#f8f9fa;font-weight:bold;cursor:pointer">.</button>
+      <button onclick="aV('e+')" style="padding:12px;border:1px solid #eee;border-radius:8px;background:#f8f9fa;font-weight:bold;cursor:pointer">EXP</button>
+      <button onclick="gO()" style="padding:12px;font-size:18px;border:none;border-radius:8px;background:#1a73e8;color:#fff;font-weight:bold;cursor:pointer">=</button>
+    </div>
+  </div>
+  <script>
+    let lA="0",hA=[],inp=document.getElementById('ms');
+    function aV(v){inp.value+=v;inp.focus()}
+    function cA(){inp.value='';document.getElementById('ss').innerText='';inp.focus()}
+    function dO(){inp.value=inp.value.slice(0,-1);inp.focus()}
+    function uA(){inp.value+=lA;inp.focus()}
+    function fC(){let n=parseInt(inp.value);if(isNaN(n)||n<0){inp.value="Error";return}let r=1n;for(let i=2n;i<=BigInt(n);i++)r*=i;document.getElementById('ss').innerText=n+"!=";inp.value=r.toString();sH(n+"!",r.toString())}
+    function gO(){let e=inp.value;if(!e)return;try{if(/^[0-9+\-*\s]+$/.test(e)){let r=eval(e.replace(/\d+/g,m=>m+'n')).toString();document.getElementById('ss').innerText=e+"=";inp.value=r;lA=r;sH(e,r);return}let r=eval(e),f=Number.isInteger(r)?r.toString():parseFloat(r.toPrecision(12)).toString();document.getElementById('ss').innerText=e+"=";inp.value=f;lA=f;sH(e,f)}catch(x){inp.value="Error"}}
+    function sH(q,a){hA.unshift(q+" = "+a);document.getElementById('hl').innerHTML=hA.map(x=>`<div>${x}</div>`).join('')}
+    function tS(){let b=document.getElementById('sb');b.style.display=b.style.display==='none'?'block':'none'}
+    function tH(){let b=document.getElementById('hb');b.style.display=b.style.display==='none'?'block':'none'}
+    function cH(){hA=[];document.getElementById('hl').innerText="Saaf ho gaya"}
+    inp.addEventListener('keydown',function(ev){if(ev.key==='Enter'){ev.preventDefault();gO()}else if(ev.key==='Escape'){cA()}});
+    setTimeout(()=>inp.focus(),200);
+  </script>
+</body>
+</html>
